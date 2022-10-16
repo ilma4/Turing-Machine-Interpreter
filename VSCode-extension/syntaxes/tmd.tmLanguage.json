@@ -1,0 +1,83 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "TMD-Support",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#alphabet"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#function"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.move.tmd",
+				"match": "\\b(left|right|stay|States)\\b"
+			}
+		]
+		},
+		"identefers":{
+			"name": "entity.name.class.tmd",
+			"match": "[a-zA-Z]([a-zA-Z0-9])*"
+		},	
+		"alphabet": {
+			"name": "keyword.control.alphabet",
+			"begin": "Alphabet{",
+			"end": "}(Alphabet)?",
+			"patterns": [
+				{
+					"name": "variable.tmd",
+					"match": "[a-zA-Z][a-zA-Z0-9]*"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"name": "invalid.illegal",
+					"match": "[^,]"
+				}
+				
+			]
+		},
+		"comments":{
+			"name": "comment.tmd",
+			"patterns": [
+				{
+					"name": "comment.line.tmd",
+					"begin": "//",
+					"end": "\n"
+				},
+				{
+					"name": "comment.block.tmd",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"function":{
+			"name": "surt.function",
+			"begin": "\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#identefers"
+				},
+				{
+					"name": "keyword.control",
+					"match": "->"
+				}
+			]
+		}
+	},
+	"scopeName": "source.tmd"
+}

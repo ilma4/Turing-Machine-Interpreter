@@ -1,0 +1,25 @@
+{
+  "name": "tmd-hse",
+  "displayName": "Turing Machine Description",
+  "description": "Support for TMD in VSCode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tmd",
+      "aliases": ["TMD-Support", "tmd"],
+      "extensions": [".tmd"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tmd",
+      "scopeName": "source.tmd",
+      "path": "./syntaxes/tmd.tmLanguage.json"
+    }]
+  }
+}
