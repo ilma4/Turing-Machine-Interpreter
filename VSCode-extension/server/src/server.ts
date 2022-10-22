@@ -24,6 +24,7 @@ import {
 
 import { execFileSync } from 'child_process';
 import { TIMEOUT } from 'dns';
+import { existsSync} from 'fs';
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -185,6 +186,9 @@ function updateComplete(textDocument: TextDocument): void {
 			}
 		];
 
+		if (!existsSync('parser')){
+			return;
+		}
 		const identefers = execFileSync('./parser', ['--identefers', '--text', textDocument.getText()]).toString('utf-8').split(' ');
 
 		identefers.forEach((_s: string): void => {
@@ -203,6 +207,9 @@ documents.onDidChangeContent(change => {
 
 
 async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+	if (!existsSync('parser')){
+		return;
+	}
 	// In this simple example we get the settings for every validate run.
 	const settings = await getDocumentSettings(textDocument.uri);
 

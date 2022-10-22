@@ -8,5 +8,5 @@
 
 - Запустите `npm install` 
 - Откройте директорию в VSCode
-- (Опционально) скомпилируйте файл parser_stub.cpp в исполняемый файл parser
+- (Опционально) скомпилируйте файл parser_stub.cpp в исполняемый файл parser. Например так: `g++ parser_stub.cpp -o parser -O2`
 - Перейдите в меню `Run and Debug`, выберете и запустите пункт `Client + Server`
