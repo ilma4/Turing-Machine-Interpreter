@@ -1,7 +1,0 @@
-{
-  "editor.tokenColorCustomizations": {
-    "comments": "#FF0000",
-    "constant.symbol.tmd" : "00FF00",
-    "keyword.control.tmd": "0000FF"
-  }
-}
